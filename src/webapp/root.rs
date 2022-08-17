@@ -1,8 +1,7 @@
 extern crate pabitell_lib;
 
 use pabitell_lib::webapp::app::{
-    App, MakeCharacters, MakeLanguages, MakeNarrator, MakeOwnedItems, MakePrintItems,
-    MakeWorld,
+    App, MakeCharacters, MakeLanguages, MakeNarrator, MakeOwnedItems, MakePrintItems, MakeWorld,
 };
 use yew::prelude::*;
 
@@ -14,7 +13,7 @@ use crate::translations::make_languages;
 
 pub struct Root {}
 
-#[derive(Clone, Debug, PartialEq, Default, Properties)]
+#[derive(Clone, Debug, PartialEq, Eq, Default, Properties)]
 pub struct Props {}
 
 pub enum Msg {}

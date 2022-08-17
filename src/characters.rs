@@ -62,12 +62,12 @@ impl Dumpable for Kitie {
 
         if let Value::Array(consumed) = &data["consumed"] {
             self.consumed = consumed
-                .into_iter()
+                .iter()
                 .map(|e| {
                     if let Value::String(meal) = e {
                         Ok(meal.to_string())
                     } else {
-                        return Err(anyhow!("Wrong format of character '{}'", self.name()));
+                        Err(anyhow!("Wrong format of character '{}'", self.name()))
                     }
                 })
                 .collect::<Result<HashSet<String>>>()?;
@@ -158,12 +158,12 @@ impl Dumpable for Doggie {
 
         if let Value::Array(consumed) = &data["consumed"] {
             self.consumed = consumed
-                .into_iter()
+                .iter()
                 .map(|e| {
                     if let Value::String(meal) = e {
                         Ok(meal.to_string())
                     } else {
-                        return Err(anyhow!("Wrong format of character '{}'", self.name()));
+                        Err(anyhow!("Wrong format of character '{}'", self.name()))
                     }
                 })
                 .collect::<Result<HashSet<String>>>()?;
