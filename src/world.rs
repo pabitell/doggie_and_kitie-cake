@@ -193,8 +193,12 @@ impl World for CakeWorld {
         false
     }
 
-    fn available_languages(&self) -> Vec<&str> {
-        vec!["cs", "en-US"]
+    fn available_languages(&self) -> Vec<String> {
+        get_available_locales(&RESOURCES)
+            .unwrap_or_else(|_| vec![])
+            .iter()
+            .map(|e| e.to_string())
+            .collect()
     }
 
     fn setup(&mut self) {
